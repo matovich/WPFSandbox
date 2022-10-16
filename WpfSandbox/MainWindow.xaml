@@ -7,7 +7,6 @@
         xmlns:local="clr-namespace:WpfSandbox"
         xmlns:views="clr-namespace:WpfSandbox.Views"
         mc:Ignorable="d"
-        
         Title="The WPF Sandbox App" Height="450" Width="800" Loaded="Window_Loaded">
     <Window.Resources>
         <ResourceDictionary>
@@ -22,7 +21,7 @@
         </Grid.RowDefinitions>
         <Menu Grid.Row="0">
             <MenuItem Header="_View">
-                <MenuItem Header="_Data Input" Command="{Binding ShowDataCommand}"/>
+                <MenuItem Header="_Data Input" Command="{Binding Path=ShowDataCommand}"/>
             </MenuItem>
         </Menu>
         <views:DataInput Grid.Row="1"></views:DataInput>

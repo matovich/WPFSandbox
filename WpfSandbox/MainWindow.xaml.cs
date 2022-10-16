@@ -9,17 +9,18 @@ namespace WpfSandbox
 {
     public partial class MainWindow : Window
     {
-        protected ICommand ShowDataCommand;
-
+        public ICommand ShowDataCommand { get; set; }
 
         public MainWindow()
         {
             InitializeComponent();
+            ShowDataCommand = new DelegateCommand(x => ShowData());
+            DataContext = this;
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            ShowDataCommand = new DelegateCommand(x => ShowData());
+ 
         }
 
         protected override void OnClosing(CancelEventArgs e)
