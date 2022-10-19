@@ -12,7 +12,12 @@ namespace WpfSandbox.Common
         readonly Action<object> _execute;
         readonly Predicate<object> _canExecute;
 
-        public DelegateCommand(Action<object> execute, Predicate<object> canExecute = null)
+        public DelegateCommand(Action<object> execute) : this(execute, null)
+        {
+
+        }
+
+        public DelegateCommand(Action<object> execute, Predicate<object> canExecute)
         {
             if (execute == null) throw new ArgumentNullException("execute");
 

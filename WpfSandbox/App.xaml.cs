@@ -19,14 +19,15 @@ namespace WpfSandbox
         protected override void OnStartup(StartupEventArgs e)
         {
 
-            base.OnStartup(e);
+        //    base.OnStartup(e);
 
             IDialogService dialogService = new DialogService(MainWindow);
             dialogService.Register<DialogViewModel, DialogWindow>();
 
             var viewModel = new MainWindowViewModel(dialogService);
-            var view = new MainWindow { DataContext = viewModel };
+            var view = new MainWindow() { DataContext = viewModel };
 
+            view.Show();
         }
 
 
