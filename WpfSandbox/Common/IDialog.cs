@@ -61,6 +61,11 @@ namespace WpfSandbox.Common
 
         public bool? ShowDialog<TViewModel>(TViewModel viewModel) where TViewModel : IDialogRequestClose
         {
+            if (!Mappings.ContainsKey(viewModel.GetType()))
+            {
+                throw new ArgumentException($"Type {viewModel.GetType()} is has not been mapped to the dialog service.");
+            }
+
             Type viewType = Mappings[typeof(TViewModel)];
             IDialog dialog = (IDialog)Activator.CreateInstance(viewType);
             EventHandler<DialogCloseRequestedEventArgs> handler = null;

@@ -13,9 +13,5 @@ namespace WpfSandbox
         {
             InitializeComponent();
         }
-
-
-        
-
     }
 }

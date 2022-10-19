@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfSandbox.Views"
         mc:Ignorable="d"
+        WindowStartupLocation="CenterOwner"
         Title="Dialog Window" Height="174" Width="354">
 	<DockPanel>
 		<StackPanel DockPanel.Dock="Bottom" Orientation="Horizontal" Margin="12" HorizontalAlignment="Right">

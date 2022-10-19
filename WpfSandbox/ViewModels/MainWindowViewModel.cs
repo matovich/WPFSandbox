@@ -18,7 +18,7 @@ namespace WpfSandbox.ViewModels
         public MainWindowViewModel(IDialogService dialogService)
         {
             ShowDataCommand = new DelegateCommand(x => { ShowData(); });
-            DisplayMessageCommand = new DelegateCommand(p => DisplayMessage(p));
+            DisplayMessageCommand = new DelegateCommand(p => DisplayMessage());
             this.dialogService = dialogService;
         }
 
@@ -28,7 +28,7 @@ namespace WpfSandbox.ViewModels
             throw new NotImplementedException();
         }
 
-        private void DisplayMessage(object e)
+        private void DisplayMessage()
         {
             var viewModel = new DialogViewModel("Hello!");
 
