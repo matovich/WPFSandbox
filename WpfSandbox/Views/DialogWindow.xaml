@@ -15,8 +15,8 @@
     </Window.Resources>
     <DockPanel>
         <StackPanel DockPanel.Dock="Bottom" Orientation="Horizontal" Margin="12" HorizontalAlignment="Right">
-            <Button IsDefault="True" Command="{Binding OkCommand}" Margin="12,0" Padding="12,6" Style="{StaticResource DefaultButton}" Width="30">Ok</Button>
-            <Button IsCancel="True" Command="{Binding CancelCommand}"  Padding="12,6"  Style="{StaticResource DefaultButton}" Width="50" >Cancel</Button>
+            <Button IsDefault="True" Command="{Binding OkCommand}" Margin="12,0"  Style="{StaticResource DefaultButton}" Content="Ok"/>
+            <Button IsCancel="True" Command="{Binding CancelCommand}"   Style="{StaticResource DefaultButton}" Content="Cancel"   />
         </StackPanel>
         <TextBlock Text="{Binding Message, FallbackValue='DIALOG_MESSAGE'}" VerticalAlignment="Center" HorizontalAlignment="Center" ></TextBlock>
     </DockPanel>

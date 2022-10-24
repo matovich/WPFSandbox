@@ -65,9 +65,9 @@
 			</DataGrid.Columns>
 		</DataGrid>
 		<StackPanel Grid.Row="2"  Orientation="Horizontal" HorizontalAlignment="Right">
-			<CheckBox x:Name="cb1" Content="Show Button" VerticalAlignment="Center" Margin="15"/>
+			<CheckBox x:Name="cb1" Content="Show Button" VerticalAlignment="Center" Margin="15" IsChecked="True"/>
 			<Button Content="Save" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="5,5,15,10" Click="Button_Click"  Style="{StaticResource DefaultButton}" 
-                    Visibility="{Binding IsChecked, ElementName=cb1, Converter={StaticResource boolToVis}}" Height="30" Width="123"/>
+                    Visibility="{Binding IsChecked, ElementName=cb1, Converter={StaticResource boolToVis}}" Height="30" MinWidth="120"/>
 
 		</StackPanel>
 	</Grid>

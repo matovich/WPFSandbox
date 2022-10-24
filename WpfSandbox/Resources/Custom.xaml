@@ -5,17 +5,25 @@
 
 
 	<Color x:Key="BorderDefinition">#FFABABAB</Color>
+	<Color x:Key="textHighlightBlue">#FF08A5E1</Color>
 
 	<!-- Brushes -->
 
 	<SolidColorBrush x:Key="dark_gray" Color="#FF393939"/>
 	<SolidColorBrush x:Key="BorderDefinitionBrush" Color="{StaticResource BorderDefinition}" />
-	
+	<SolidColorBrush x:Key="TextHighlightBrush" Color="{StaticResource textHighlightBlue}"/>
 	
 	<!-- BUTTONS -->
 
 	<Style x:Key="DefaultButton" TargetType="{x:Type Button}">
+		<Style.Resources>
+			<Style TargetType="Border">
+				<Setter Property="CornerRadius" Value="5" />
+			</Style>
+		</Style.Resources>
 		<Setter Property="Height" Value="28"/>
+		<Setter Property="MinWidth" Value="25"/>
+		<Setter Property="Padding" Value="10, 6"/>
 		<Setter Property="Foreground" Value="{StaticResource dark_gray}"/>
 		<Setter Property="BorderBrush" Value="White" />
 		<Setter Property="BorderThickness" Value="3" />
@@ -99,17 +107,12 @@
 						<Border x:Name="HighlightBorder" BorderBrush="{DynamicResource TextHighlightBrush}" BorderThickness="1"  Opacity="0"/>
 
 						<ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
-                                          SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" RecognizesAccessKey="True"/>
+                                         SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" RecognizesAccessKey="True" Margin="{TemplateBinding Padding}" />
 
 					</Grid>
 				</ControlTemplate>
 			</Setter.Value>
 		</Setter>
-		<Style.Resources>
-			<Style TargetType="Border">
-				<Setter Property="CornerRadius" Value="5" />
-			</Style>
-		</Style.Resources>
 	</Style>
 	
 	
