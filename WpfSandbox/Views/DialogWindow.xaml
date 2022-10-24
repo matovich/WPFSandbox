@@ -5,13 +5,19 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfSandbox.Views"
         mc:Ignorable="d"
-        WindowStartupLocation="CenterOwner"
-        Title="Dialog Window" Height="174" Width="354">
-	<DockPanel>
-		<StackPanel DockPanel.Dock="Bottom" Orientation="Horizontal" Margin="12" HorizontalAlignment="Right">
-			<Button IsDefault="True" Command="{Binding OkCommand}" Margin="12,0" Padding="12,6">Ok</Button>
-			<Button IsCancel="True" Command="{Binding CancelCommand}"  Padding="12,6">Cancel</Button>
-		</StackPanel>
-		<TextBlock Text="{Binding Message, FallbackValue='DIALOG_MESSAGE'}" VerticalAlignment="Center" HorizontalAlignment="Center" ></TextBlock>
-	</DockPanel>
+        WindowStartupLocation="CenterOwner" Height="174" Width="354">
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="../Resources/Custom.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+    <DockPanel>
+        <StackPanel DockPanel.Dock="Bottom" Orientation="Horizontal" Margin="12" HorizontalAlignment="Right">
+            <Button IsDefault="True" Command="{Binding OkCommand}" Margin="12,0" Padding="12,6" Style="{StaticResource DefaultButton}" Width="30">Ok</Button>
+            <Button IsCancel="True" Command="{Binding CancelCommand}"  Padding="12,6"  Style="{StaticResource DefaultButton}" Width="50" >Cancel</Button>
+        </StackPanel>
+        <TextBlock Text="{Binding Message, FallbackValue='DIALOG_MESSAGE'}" VerticalAlignment="Center" HorizontalAlignment="Center" ></TextBlock>
+    </DockPanel>
 </Window>

@@ -10,6 +10,9 @@
              d:DesignHeight="450" d:DesignWidth="800">
 	<UserControl.Resources>
 		<ResourceDictionary>
+			<ResourceDictionary.MergedDictionaries>
+				<ResourceDictionary Source="../Resources/Custom.xaml"/>
+			</ResourceDictionary.MergedDictionaries>
 			<CollectionViewSource x:Key="categoryViewSource"/>
 			<CollectionViewSource x:Key="categoryProductsViewSource"
                               Source="{Binding Products, Source={StaticResource categoryViewSource}}"/>
@@ -63,7 +66,7 @@
 		</DataGrid>
 		<StackPanel Grid.Row="2"  Orientation="Horizontal" HorizontalAlignment="Right">
 			<CheckBox x:Name="cb1" Content="Show Button" VerticalAlignment="Center" Margin="15"/>
-			<Button Content="Save" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="5,5,15,10" Click="Button_Click"
+			<Button Content="Save" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="5,5,15,10" Click="Button_Click"  Style="{StaticResource DefaultButton}" 
                     Visibility="{Binding IsChecked, ElementName=cb1, Converter={StaticResource boolToVis}}" Height="30" Width="123"/>
 
 		</StackPanel>
