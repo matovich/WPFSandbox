@@ -43,13 +43,9 @@ namespace WpfSandbox.Views
         }
 
       
-        
-        ///This needs to be cleaned up on exiting the user control ????
-        //protected override void OnClosing(CancelEventArgs e)
-        //{
-        //    // clean up database connections
-        //    _context.Dispose();
-        //    base.OnClosing(e);
-        //}
+        private async void Control_Unloaded(object sender, RoutedEventArgs e)
+        {
+            await _context.DisposeAsync();
+        }
     }
 }
