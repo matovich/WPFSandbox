@@ -3,8 +3,6 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:common="clr-namespace:WpfSandbox.Common"
-        xmlns:local="clr-namespace:WpfSandbox"
         
         xmlns:views="clr-namespace:WpfSandbox.Views"
         mc:Ignorable="d"
@@ -24,7 +22,13 @@
         </Grid.RowDefinitions>
         <Menu Grid.Row="0">
             <MenuItem Header="_View">
-                <MenuItem Header="_Data Input" Command="{Binding DisplayMessageCommand}"/>
+                <MenuItem Header="_Data Input" Command="{Binding ShowDataCommand}"/>
+                <MenuItem Header="_Message Box" Command="{Binding DisplayMessageCommand}"/>
+                <Separator></Separator>
+                <MenuItem Header="_Lockup the UI" Command="{Binding LockUpTheUICommand}"/>
+                <Separator></Separator>
+                <MenuItem Header="_Start Task" Command="{Binding StartLongRunningOperationCommand}"/>
+                <MenuItem Header="_Cancel Task" Command="{Binding StopLongRunningOperationCommand}"/>
             </MenuItem>
         </Menu>
         <views:DataInput Grid.Row="1"></views:DataInput>
