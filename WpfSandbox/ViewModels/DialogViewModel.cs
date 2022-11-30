@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Input;
 using WpfSandbox.Common;
 
@@ -17,8 +13,8 @@ namespace WpfSandbox.ViewModels
         public DialogViewModel(string message)
         {
             Message = message;
-            OkCommand = new DelegateCommand(p => CloseRequested?.Invoke(this, new DialogCloseRequestedEventArgs(true)));
-            CancelCommand = new DelegateCommand(p => CloseRequested?.Invoke(this, new DialogCloseRequestedEventArgs(false)));
+            OkCommand = new DelegateCommand(_ => CloseRequested?.Invoke(this, new DialogCloseRequestedEventArgs(true)));
+            CancelCommand = new DelegateCommand(_ => CloseRequested?.Invoke(this, new DialogCloseRequestedEventArgs(false)));
         }
 
         public ICommand OkCommand { get; }

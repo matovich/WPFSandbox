@@ -38,11 +38,11 @@ namespace WpfSandbox.Common
 
     public class DialogService : IDialogService
     {
-        private readonly Window owner;
+        private readonly Window _owner;
 
         public DialogService(Window owner)
         {
-            this.owner = owner;
+            _owner = owner;
             Mappings = new Dictionary<Type, Type>();
         }
 
@@ -63,7 +63,7 @@ namespace WpfSandbox.Common
         {
             if (!Mappings.ContainsKey(viewModel.GetType()))
             {
-                throw new ArgumentException($"Type {viewModel.GetType()} is has not been mapped to the dialog service.");
+                throw new ArgumentException($"Type {viewModel.GetType()} has not been mapped to the dialog service.");
             }
 
             Type viewType = Mappings[typeof(TViewModel)];
@@ -82,9 +82,10 @@ namespace WpfSandbox.Common
                 }
             };
 
+            viewModel.CloseRequested -= handler;
             viewModel.CloseRequested += handler;
             dialog.DataContext = viewModel;
-            dialog.Owner = owner;
+            dialog.Owner = _owner;
 
             return dialog.ShowDialog();
         }
