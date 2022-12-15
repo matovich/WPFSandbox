@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using WpfSandbox.Common;
 
+
 namespace WpfSandbox.ViewModels
 {
     public class MainWindowViewModel : PropertyChangedBase
@@ -41,20 +42,23 @@ namespace WpfSandbox.ViewModels
 
         public async Task StartLongRunningOperationAsync()
         {
-            var cancelationToken = new CancellationTokenSource();
-            _cancelationTokens.Enqueue(cancelationToken);
+            // https://devblogs.microsoft.com/pfxteam/task-run-vs-task-factory-startnew/
+            // https://devblogs.microsoft.com/dotnet/configureawait-faq/
 
-            var task = Task.Factory.StartNew(() =>
+            var cancelationTokenSource = new CancellationTokenSource();
+            _cancelationTokens.Enqueue(cancelationTokenSource);
+            var number = _cancelationTokens.Count;
+
+            var task = Task.Run(() =>
             {
-                var number = _cancelationTokens.Count;
-                while (!cancelationToken.IsCancellationRequested)
+                while (!cancelationTokenSource.IsCancellationRequested)
                 {
                     Trace.Write($"t{number} ");
                     Thread.Sleep(500);
                 }
             });
 
-            await task;
+            await task.ConfigureAwait(false);
             task.Dispose();
         }
 
