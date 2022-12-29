@@ -15,12 +15,8 @@
         </ResourceDictionary>
 
     </Window.Resources>
-    <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="*"/>
-        </Grid.RowDefinitions>
-        <Menu Grid.Row="0">
+    <DockPanel>
+        <Menu DockPanel.Dock="Top">
             <MenuItem Header="_View">
                 <MenuItem Header="_Data Input" Command="{Binding ShowDataCommand}"/>
                 <MenuItem Header="_Message Box" Command="{Binding DisplayMessageCommand}"/>
@@ -31,8 +27,10 @@
                 <MenuItem Header="_Cancel Task" Command="{Binding StopLongRunningOperationCommand}"/>
             </MenuItem>
         </Menu>
-        <views:DataInput Grid.Row="1"></views:DataInput>
-
-        
-    </Grid>
+        <Grid>
+            <ContentControl x:Name="ActiveItem" Margin="5">
+                <views:DataInput Grid.Row="1"></views:DataInput>
+            </ContentControl>
+        </Grid>
+    </DockPanel>
 </Window>

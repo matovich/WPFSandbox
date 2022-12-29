@@ -3,7 +3,7 @@ using System.Runtime.CompilerServices;
 
 namespace WpfSandbox.Common
 {
-    public class PropertyChangedBase : INotifyPropertyChanged
+    public abstract class PropertyChangedBase : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler? PropertyChanged;
 
@@ -11,7 +11,7 @@ namespace WpfSandbox.Common
         /// Raises this object's PropertyChanged event.
         /// </summary>
         /// <param name="propertyName">When left empty this will supply the calling member name.</param>
-        protected void OnPropertyChanged([CallerMemberName] string propertyName = null)
+        protected void OnPropertyChanged([CallerMemberName] string? propertyName = null)
         {
             var handler = PropertyChanged;
             if (handler != null)
